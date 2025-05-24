@@ -108,6 +108,62 @@ h2 span {
   }
 }
 
+/* .typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--highlight);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  max-width: fit-content;
+
+  animation: typing 6s steps(24) infinite;
+  // 8 saniyede 58 adımlı animasyon (karakter sayısı kadar)
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 12ch;
+  }
+  100% {
+    width: 0;
+  }
+} */
+
+.shine-text {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  background: linear-gradient(
+    90deg,
+    var(--text-color) 20%,
+    var(--highlight) 40%,
+    var(--text-color) 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine-text 3.8s linear infinite;
+}
+
+@keyframes shine-text {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
 .social-icons {
   margin: 1.8rem 0;
   display: flex;
@@ -141,7 +197,7 @@ footer {
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .avatar-icon {
@@ -160,4 +216,14 @@ footer {
     top: -8px;
     right: -8px;
   }
+
+  .shine-text {
+    font-size: 1rem;
+    letter-spacing: 0.8px;
+  }
+
+  /* .typewriter {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  } */
 }
