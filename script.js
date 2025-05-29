@@ -14,7 +14,7 @@ function updateIcon() {
     // Light modda: Ay ikonunu ve gözlüklü avatar2'yi göster
     icon.src = "images/icons/moon-icon.svg";
     icon.alt = "Dark Mode";
-    profilePic.src = "images/avatar2.png";
+    profilePic.src = "images/avatar2.jpg";
   }
 }
 
