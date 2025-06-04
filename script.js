@@ -25,10 +25,10 @@ function createStars() {
   const isDarkMode = body.classList.contains("dark-mode");
   const starColor = isDarkMode ? "#f2f2f2" : "#031326"; // beyaz veya lacivert
 
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 450; i++) {
     const star = document.createElement("div");
     star.classList.add("star");
-    const size = Math.random() * 4 + 1; // 1px - 4px arası boyut
+    const size = Math.random() * 3 + 1; // 1px - 4px arası boyut
 
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
