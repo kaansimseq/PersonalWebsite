@@ -7,71 +7,143 @@
     <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg" />
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="dark-mode">
-    <div id="stars"></div>
-    <main class="container">
-      <div class="profile-image">
-        <div class="avatar-icon">
-          <img
-            src="images/avatar1.jpg"
-            alt="Kaan Şimşek Photo"
-            class="profile-pic"
-          />
-          <div class="theme-toggle" id="themeToggle" title="Tema Değiştir">
-            <img
-              id="themeIcon"
-              src="images/icons/sun-icon.svg"
-              alt="Tema İkonu"
-            />
+  <body>
+    <div class="scroll-container" id="scrollContainer">
+      <div class="sticky-stage">
+        <!-- Hero -->
+        <section class="hero" id="hero">
+          <div class="hero-photo">
+            <img src="images/kaan.jpeg" alt="Kaan Şimşek" />
           </div>
+          <h1 class="hero-name">KAAN ŞİMŞEK</h1>
+          <div class="hero-role">Software Developer</div>
+        </section>
+
+        <!-- Scroll cue -->
+        <div class="scroll-cue" id="scrollCue">
+          <div class="scroll-cue-pill"><div class="scroll-cue-dot"></div></div>
         </div>
+
+        <!-- Social cards -->
+        <section class="cards-layer" id="cardsLayer">
+          <div class="cards-label" id="cardsLabel">Find me on — 06 links</div>
+          <div class="cards-track-wrap" id="cardsTrackWrap">
+            <div class="cards-track" id="cardsTrack">
+              <a
+                class="social-card"
+                href="https://www.linkedin.com/in/kaansimsekk"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">01</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/linkedin-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">LinkedIn</div>
+              </a>
+
+              <a
+                class="social-card"
+                href="https://github.com/kaansimseq"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">02</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/github-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">GitHub</div>
+              </a>
+
+              <a
+                class="social-card"
+                href="https://apps.apple.com/us/developer/kaan-simsek/id1811808533"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">03</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/apple-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">My Apps</div>
+              </a>
+
+              <a
+                class="social-card"
+                href="https://medium.com/@kaansimsek"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">04</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/medium-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">Medium</div>
+              </a>
+
+              <a
+                class="social-card"
+                href="mailto:kaansimsek.dev@gmail.com"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">05</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/mail-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">Mail</div>
+              </a>
+
+              <a
+                class="social-card"
+                href="images/KaanSimsekCV.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <div class="social-card-top">
+                  <span class="social-card-num">06</span>
+                  <span class="social-card-arrow">↗</span>
+                </div>
+                <div class="social-card-icon">
+                  <img src="images/icons/cv-icon.svg" alt="" />
+                </div>
+                <div class="social-card-name">CV</div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing quote -->
+        <section class="quote-layer" id="quoteLayer">
+          <div class="quote-inner">
+            <span id="quoteText"></span><span class="quote-cursor"></span>
+            <div class="quote-footer">© 2026 KAAN ŞİMŞEK</div>
+          </div>
+        </section>
+
+        <div class="progress-bar" id="progressBar"></div>
       </div>
-      <!-- Name Surname -->
-      <h1>Kaan Şimşek</h1>
-      <!-- Job -->
-      <h2>Software <span>Developer</span></h2>
-      <!-- Text -->
-      <h3 class="typewriter">An Ordinary Software Developer</h3>
-      <!-- Linkedin - Github - Apple Account -->
-      <div class="social-icons">
-        <a
-          href="https://www.linkedin.com/in/kaansimsekk"
-          title="LinkedIn"
-          target="_blank"
-        >
-          <img src="images/icons/linkedin-icon.svg" alt="LinkedIn" />
-        </a>
-        <a href="https://github.com/kaansimseq" title="GitHub" target="_blank">
-          <img src="images/icons/github-icon.svg" alt="GitHub" />
-        </a>
-        <a
-          href="https://apps.apple.com/us/developer/kaan-simsek/id1811808533"
-          title="My Apps"
-          target="_blank"
-        >
-          <img src="images/icons/apple-icon.svg" alt="Apple" />
-        </a>
-        <a href="https://medium.com/@kaansimsek" title="Medium" target="_blank">
-          <img src="images/icons/medium-icon.svg" alt="Medium" />
-        </a>
-      </div>
-      <!-- Mail - CV -->
-      <div class="social-icons">
-        <a href="mailto:kaansimsek.dev@gmail.com" title="Mail" target="_blank">
-          <img src="images/icons/mail-icon.svg" alt="Mail" />
-        </a>
-        <a href="images/YeniCV.pdf" title="CV" target="_blank">
-          <img src="images/icons/cv-icon.svg" alt="CV" />
-        </a>
-      </div>
-      <!-- Footer -->
-      <footer>© 2025 Kaan Simsek</footer>
-    </main>
-    <!-- JS -->
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

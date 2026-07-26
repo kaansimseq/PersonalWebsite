@@ -1,62 +1,57 @@
-const toggle = document.getElementById("themeToggle");
-const body = document.body;
+const QUOTE = "AI Won't Take Your Job. Someone Using AI Will.";
 
-function updateIcon() {
-  const icon = document.getElementById("themeIcon");
-  const profilePic = document.querySelector(".profile-pic");
+const hero = document.getElementById("hero");
+const scrollCue = document.getElementById("scrollCue");
+const cardsLayer = document.getElementById("cardsLayer");
+const cardsLabel = document.getElementById("cardsLabel");
+const cardsTrackWrap = document.getElementById("cardsTrackWrap");
+const cardsTrack = document.getElementById("cardsTrack");
+const quoteLayer = document.getElementById("quoteLayer");
+const quoteText = document.getElementById("quoteText");
+const progressBar = document.getElementById("progressBar");
 
-  if (body.classList.contains("dark-mode")) {
-    // Dark modda: Güneş ikonunu ve avatar1'i göster
-    icon.src = "images/icons/sun-icon.svg";
-    icon.alt = "Light Mode";
-    profilePic.src = "images/avatar1.jpg";
-  } else {
-    // Light modda: Ay ikonunu ve gözlüklü avatar2'yi göster
-    icon.src = "images/icons/moon-icon.svg";
-    icon.alt = "Dark Mode";
-    profilePic.src = "images/avatar2.jpg";
-  }
+function seg(p, a, b) {
+  return Math.max(0, Math.min(1, (p - a) / (b - a)));
 }
 
-function createStars() {
-  const starsContainer = document.getElementById("stars");
-  starsContainer.innerHTML = ""; // önceki yıldızları temizle
-
-  const isDarkMode = body.classList.contains("dark-mode");
-  const starColor = isDarkMode ? "#f2f2f2" : "#031326"; // beyaz veya lacivert
-
-  for (let i = 0; i < 450; i++) {
-    const star = document.createElement("div");
-    star.classList.add("star");
-    const size = Math.random() * 3 + 1; // 1px - 4px arası boyut
-
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-    star.style.backgroundColor = starColor;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.animationDuration = `${2 + Math.random() * 3}s`;
-
-    starsContainer.appendChild(star);
-  }
+function trackWidth() {
+  // Measured from the DOM so the scroll math stays correct across the
+  // mobile breakpoint, where card size/gap shrink.
+  return cardsTrack.scrollWidth;
 }
 
-// Load theme from localStorage
-if (localStorage.getItem("theme") === "light") {
-  body.classList.remove("dark-mode");
-} else {
-  body.classList.add("dark-mode");
+function update() {
+  const doc = document.documentElement;
+  const max = doc.scrollHeight - window.innerHeight;
+  const p = max > 0 ? Math.max(0, Math.min(1, window.scrollY / max)) : 0;
+  const vw = window.innerWidth;
+
+  const heroOut = seg(p, 0.05, 0.15);
+  hero.style.opacity = 1 - heroOut;
+  hero.style.transform = `translateY(${-50 * heroOut}px) scale(${
+    1 - 0.08 * heroOut
+  })`;
+
+  scrollCue.style.opacity = 1 - seg(p, 0.005, 0.045);
+
+  const cp = seg(p, 0.1, 0.68);
+  const travel = vw + trackWidth();
+  cardsTrackWrap.style.transform = `translateX(${-cp * travel}px)`;
+
+  const fadeOut = seg(p, 0.66, 0.71);
+  cardsLayer.style.opacity = 1 - fadeOut;
+  cardsLayer.style.pointerEvents = fadeOut < 0.5 ? "auto" : "none";
+  cardsLabel.style.opacity = seg(p, 0.08, 0.14);
+
+  const quoteActive = p > 0.71;
+  quoteLayer.classList.toggle("active", quoteActive);
+  quoteLayer.style.opacity = seg(p, 0.71, 0.75);
+  const q = seg(p, 0.74, 0.94);
+  quoteText.textContent = QUOTE.slice(0, Math.round(q * QUOTE.length));
+
+  progressBar.style.width = (p * 100).toFixed(2) + "%";
 }
-updateIcon();
 
-createStars();
-
-toggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  updateIcon();
-  localStorage.setItem(
-    "theme",
-    body.classList.contains("dark-mode") ? "dark" : "light"
-  );
-  createStars();
-});
+window.addEventListener("scroll", update, { passive: true });
+window.addEventListener("resize", update);
+update();
