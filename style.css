@@ -52,6 +52,8 @@ a:hover img {
   align-items: center;
   justify-content: center;
   gap: 28px;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .hero-photo {
@@ -83,11 +85,12 @@ a:hover img {
 
 .hero-role {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 18px;
+  font-size: clamp(12px, 4vw, 20px);
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: #7fb4e8;
   padding-left: 0.38em;
+  white-space: nowrap;
 }
 
 /* Scroll cue */
