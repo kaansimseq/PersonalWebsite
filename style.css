@@ -57,8 +57,8 @@ a:hover img {
 }
 
 .hero-photo {
-  width: 168px;
-  height: 168px;
+  width: clamp(96px, 30vw, 168px);
+  height: clamp(96px, 30vw, 168px);
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(127, 180, 232, 0.55);
@@ -307,11 +307,6 @@ a:hover img {
 
 /* 📱 Responsive */
 @media (max-width: 600px) {
-  .hero-photo {
-    width: 128px;
-    height: 128px;
-  }
-
   .cards-label {
     top: 32px;
     left: 24px;
